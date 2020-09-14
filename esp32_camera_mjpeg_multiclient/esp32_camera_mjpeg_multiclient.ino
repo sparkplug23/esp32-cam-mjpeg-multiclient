@@ -24,7 +24,7 @@
 #define APP_CPU 1
 #define PRO_CPU 0
 
-#include "src/OV2640.h"
+#include "OV2640.h"
 #include <WiFi.h>
 #include <WebServer.h>
 #include <WiFiClient.h>
@@ -36,12 +36,16 @@
 
 // Select camera model
 //#define CAMERA_MODEL_WROVER_KIT
-#define CAMERA_MODEL_ESP_EYE
+//#define CAMERA_MODEL_ESP_EYE
 //#define CAMERA_MODEL_M5STACK_PSRAM
 //#define CAMERA_MODEL_M5STACK_WIDE
-//#define CAMERA_MODEL_AI_THINKER
+#define CAMERA_MODEL_AI_THINKER
 
 #include "camera_pins.h"
+
+
+  #define SSID1 "Skynet2400"
+  #define PWD1 "af4d8bc9ab"
 
 /*
   Next one is an include with wifi credentials.
@@ -55,7 +59,7 @@
 
   Should work then
 */
-#include "home_wifi_multi.h"
+//#include "home_wifi_multi.h"
 
 OV2640 cam;
 
@@ -388,6 +392,7 @@ void setup()
   // Setup Serial connection:
   Serial.begin(115200);
   delay(1000); // wait for a second to let Serial connect
+  Serial.println("Rebooting");
 
 
   // Configure the camera
